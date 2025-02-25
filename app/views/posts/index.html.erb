@@ -1,0 +1,36 @@
+<% content_for :title, "AI-Generated Blog Posts" %>
+
+<div class="space-y-6">
+  <header class="flex items-center justify-between">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">Latest Posts</h1>
+  </header>
+
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" id="posts">
+    <% @posts.each do |post| %>
+      <%= link_to post, class: "card group" do %>
+        <% if post.generated_image.attached? %>
+          <div class="aspect-h-9 aspect-w-16 overflow-hidden">
+            <%= image_tag post.generated_image, 
+                class: "h-48 w-full object-cover transition-transform duration-200 group-hover:scale-105",
+                alt: post.image_prompt %>
+          </div>
+        <% end %>
+        <div class="p-6">
+          <h2 class="text-xl font-semibold text-gray-900 group-hover:text-indigo-600"><%= post.title %></h2>
+          <% if post.image_prompt.present? %>
+            <p class="mt-2 text-sm text-gray-500 italic">Generated from: <%= post.image_prompt %></p>
+          <% end %>
+          <div class="mt-4 line-clamp-3 text-sm text-gray-600">
+            <%= post.content %>
+          </div>
+          <div class="mt-4 flex items-center text-sm text-gray-500">
+            <svg class="mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <%= time_ago_in_words(post.created_at) %> ago
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

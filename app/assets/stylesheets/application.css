@@ -1,0 +1,89 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+/* Base Styles */
+.timestamp-info {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.text-muted small {
+  font-size: 0.875em;
+}
+
+/* Form Styles */
+.field {
+  margin-bottom: 20px;
+}
+
+.title-field {
+  width: 100%;
+  padding: 8px;
+  font-size: 1.2em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 800px;
+}
+
+.content-field {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 800px;
+  min-height: 300px;
+  resize: vertical;
+}
+
+.title-field:focus,
+.content-field:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.submit-button {
+  padding: 10px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+
+.submit-button:hover {
+  background-color: #357abd;
+}
+
+/* Post Image Styles */
+.post-image {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.generated-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-prompt {
+  margin-top: 10px;
+  color: #666;
+  font-style: italic;
+}

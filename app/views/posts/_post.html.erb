@@ -1,0 +1,29 @@
+<article id="<%= dom_id post %>" class="prose lg:prose-lg mx-auto">
+  <header class="not-prose mb-8">
+    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl mb-4"><%= post.title %></h1>
+    
+    <div class="flex items-center text-sm text-gray-500">
+      <svg class="mr-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <%= time_ago_in_words(post.created_at) %> ago
+    </div>
+  </header>
+
+  <% if post.generated_image.attached? %>
+    <div class="not-prose post-image mb-8">
+      <%= image_tag post.generated_image, alt: post.image_prompt, class: "rounded-lg shadow-lg" %>
+    </div>
+  <% end %>
+
+  <div class="mt-8 text-gray-700">
+    <%= simple_format post.content %>
+  </div>
+
+  <footer class="mt-8 text-sm text-gray-500 border-t pt-4">
+    <div class="flex flex-col space-y-1">
+      <p>Created <%= post.created_at.strftime("%B %d, %Y at %I:%M %p") %></p>
+      <p>Last updated <%= post.updated_at.strftime("%B %d, %Y at %I:%M %p") %></p>
+    </div>
+  </footer>
+</article>
