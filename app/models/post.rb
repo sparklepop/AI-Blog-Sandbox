@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
   # Add Active Storage attachment
   has_one_attached :generated_image
+  has_rich_text :content
+  
   validates :title, presence: true
-  validates :content, presence: true
 
   def generate_image
     return false unless image_prompt.present?

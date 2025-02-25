@@ -15,7 +15,34 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    
+    <!-- Trix editor styles -->
+    <style>
+      .trix-content {
+        @apply prose lg:prose-lg max-w-none;
+      }
+      .trix-button-group {
+        @apply border border-gray-300 rounded-md overflow-hidden;
+      }
+      .trix-button {
+        @apply p-2 hover:bg-gray-100 border-r border-gray-300;
+      }
+      .trix-button:last-child {
+        @apply border-r-0;
+      }
+      .trix-button.trix-active {
+        @apply bg-gray-100;
+      }
+      trix-toolbar {
+        @apply mb-2;
+      }
+      trix-editor {
+        height: 600px !important;
+        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm prose;
+      }
+    </style>
     
     <!-- Add Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
