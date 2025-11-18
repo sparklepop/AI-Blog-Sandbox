@@ -14,8 +14,10 @@ class PostsTest < ApplicationSystemTestCase
     visit posts_url
     click_on "New post"
 
-    fill_in "Content", with: @post.content
     fill_in "Title", with: @post.title
+    # Action Text/Trix editor - set content via JavaScript
+    trix_editor = find("trix-editor")
+    page.execute_script("arguments[0].editor.loadHTML('<div>Test content for new post</div>')", trix_editor.native)
     click_on "Create Post"
 
     assert_text "Post was successfully created"
@@ -26,8 +28,10 @@ class PostsTest < ApplicationSystemTestCase
     visit post_url(@post)
     click_on "Edit post"
 
-    fill_in "Content", with: @post.content
-    fill_in "Title", with: @post.title
+    fill_in "Title", with: "Updated title"
+    # Action Text/Trix editor - set content via JavaScript
+    trix_editor = find("trix-editor")
+    page.execute_script("arguments[0].editor.loadHTML('<div>Updated content</div>')", trix_editor.native)
     click_on "Update Post"
 
     assert_text "Post was successfully updated"
@@ -36,7 +40,10 @@ class PostsTest < ApplicationSystemTestCase
 
   test "should destroy Post" do
     visit post_url(@post)
-    click_on "Delete post"
+    # Accept the confirmation dialog when deleting
+    accept_confirm do
+      click_on "Delete post"
+    end
 
     assert_text "Post was successfully destroyed"
   end
