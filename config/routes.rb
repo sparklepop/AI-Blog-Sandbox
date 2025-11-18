@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Set the root path to the posts index
   root "posts#index"
-  
+
   # RESTful routes for posts
   resources :posts
 

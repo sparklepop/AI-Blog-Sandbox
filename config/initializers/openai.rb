@@ -1,4 +1,4 @@
-require 'openai'
+require "openai"
 
 begin
   # Try to access the credentials
@@ -12,7 +12,7 @@ end
 
 OpenAI.configure do |config|
   config.access_token = api_key
-  
+
   if config.access_token.blank?
     Rails.logger.error "OpenAI API key is not configured!"
   else
