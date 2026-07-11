@@ -29,7 +29,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 # Use Active Storage variant
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -41,7 +41,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 2.0"
 
 # OpenAI API for image generation
 gem "ruby-openai"
